@@ -1,0 +1,202 @@
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 22px;
+    background: linear-gradient(to top, rgba(0, 0, 0, .88), transparent);
+    opacity: 0;
+    transition: .35s;
+}
+
+.gallery-item:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-number {
+    font-size: 70px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, .15);
+}
+
+.gallery-category {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #7B2EFF;
+}
+
+.gallery-lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, .85);
+    backdrop-filter: blur(12px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+}
+
+.gallery-lightbox-card {
+    width: 600px;
+    max-width: 90%;
+    background: #0b0b0b;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.gallery-preview {
+    height: 320px;
+}
+
+.gallery-info {
+    padding: 25px;
+}
+
+.gallery-close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 50%;
+    background: #111;
+    color: white;
+    cursor: pointer;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.gallery-item:first-child,
+.gallery-item:nth-child(5) {
+    grid-column: span 1;
+}
+
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+    }
+}
+
+.gallery-item {
+    aspect-ratio: 1 / 1;
+    width: 100%;
+    border-radius: 18px;
+    overflow: hidden;
+    border: 1px solid white;
+}
+
+.gallery-item:hover {
+    transform: translateY(-6px);
+}
+
+.gallery-inner {
+    width: 100%;
+    height: 100%;
+    transition: .4s;
+}
+
+.gallery-item:hover .gallery-inner {
+    transform: scale(1.08);
+}
+
+/* ── LIGHT MODE ────────────────────────────────────────────── */
+.light-theme .gallery-item {
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.light-theme .gallery-item:hover {
+    border-color: rgba(123, 46, 255, 0.3);
+    box-shadow: 0 8px 30px rgba(123, 46, 255, 0.1);
+}
+
+.light-theme .gallery-number {
+    color: rgba(0, 0, 0, 0.08);
+}
+
+.light-theme .gallery-lightbox-card {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+}
+
+.light-theme .gallery-info {
+    color: #111827;
+}
+
+.light-theme .gallery-info span {
+    color: #7B2EFF;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.light-theme .gallery-info h3 {
+    color: #111827;
+    margin-top: 4px;
+}
+
+.light-theme .gallery-info p {
+    color: #4b5563;
+    font-size: 0.88rem;
+    margin-top: 8px;
+}
+
+.light-theme .gallery-close {
+    background: #f3f4f6;
+    color: #111827;
+    border: 1px solid #e5e7eb;
+}
+
+.light-theme .gallery-close:hover {
+    background: rgba(123, 46, 255, 0.08);
+    border-color: #7B2EFF;
+    color: #7B2EFF;
+}
+
+.light-theme #gallery {
+    background-color: white;
+}
+
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.gallery-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.gallery-item:hover .gallery-image {
+    transform: scale(1.08);
+}
+
+.gallery-overlay {
+    position: absolute;
+    inset: 0;
+    /* keep your existing overlay styles, just make sure it sits above the img (z-index) */
+    z-index: 2;
+}

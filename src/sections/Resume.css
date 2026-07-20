@@ -1,0 +1,154 @@
+.resume-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+    .resume-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.resume-timeline-item {
+    position: relative;
+    padding-left: 24px;
+    padding-bottom: 32px;
+}
+
+.resume-timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    bottom: -8px;
+    width: 1px;
+    background: linear-gradient(to bottom, #7B2EFF, rgba(123, 46, 255, 0.1));
+}
+
+.resume-timeline-item:last-child::before {
+    display: none;
+}
+
+.resume-dot {
+    position: absolute;
+    left: -5px;
+    top: 6px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+    background: #7B2EFF;
+    box-shadow: 0 0 12px #7B2EFF;
+}
+
+.resume-card {
+    background: rgba(255, 255, 255, 0.025);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 14px;
+    padding: 20px 22px;
+    transition: all 0.25s;
+}
+
+.resume-card:hover {
+    border-color: rgba(123, 46, 255, 0.25);
+    box-shadow: 0 8px 30px rgba(123, 46, 255, 0.08);
+}
+
+.download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 32px;
+    border-radius: 10px;
+    background: rgb(65, 159, 65);
+    color: white;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    font-weight: 700;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s;
+    box-shadow: 0 0 30px rgba(123, 46, 255, 0.35);
+    text-decoration: none;
+}
+
+.download-btn:hover {
+    background: #6a1fe8;
+    box-shadow: 0 0 50px rgba(123, 46, 255, 0.55);
+    transform: translateY(-3px);
+}
+
+.resume-btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+/* ── RESUME CONTENT BOX ────────────────────────────────────── */
+.resume-content-box {
+    max-width: 620px;
+    margin: 2rem auto 0;
+    padding: 36px 40px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid white;
+    box-shadow: 0 4px 30px rgba(123, 46, 255, 0.08);
+    text-align: center;
+    transition: all 0.35s ease;
+}
+
+.resume-content-box:hover {
+    border-color: rgba(123, 46, 255, 0.25);
+    box-shadow: 0 8px 40px rgba(123, 46, 255, 0.12);
+}
+
+/* ── LIGHT MODE ────────────────────────────────────────────── */
+.light-theme #resume {
+    background: var(--bg);
+}
+
+.light-theme #resume h2 {
+    color: #111827;
+}
+
+.light-theme #resume p {
+    color: #4b5563;
+}
+
+.light-theme .resume-card {
+    background: #ffffff;
+    border-color: #e5e7eb;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.light-theme .resume-card:hover {
+    border-color: rgba(123, 46, 255, 0.3);
+    box-shadow: 0 8px 30px rgba(123, 46, 255, 0.1);
+}
+
+.light-theme .resume-content-box {
+    background: #ffffff;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+    border: 1px solid black;
+}
+
+.light-theme .resume-content-box:hover {
+    border-color: rgba(123, 46, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(123, 46, 255, 0.1);
+}
+
+.light-theme .download-btn {
+    background: rgb(65, 159, 65);
+    box-shadow: 0 4px 20px rgba(123, 46, 255, 0.25);
+}
+
+.light-theme .download-btn:hover {
+    background: #6318e8;
+    box-shadow: 0 8px 30px rgba(123, 46, 255, 0.35);
+}
+
+.light-theme #resume {
+    background-color: white;
+}

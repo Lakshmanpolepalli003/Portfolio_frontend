@@ -1,0 +1,406 @@
+.timeline-card {
+  padding: 24px 28px;
+  border-radius: 14px;
+  background: rgba(236, 233, 233, 0.084);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  position: relative;
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.timeline-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  border-radius: 3px 0 0 3px;
+  background: #7B2EFF;
+  box-shadow: 0 0 12px rgba(123, 46, 255, 0.5);
+}
+
+.timeline-card:hover {
+  border-color: rgba(123, 46, 255, 0.25);
+  box-shadow: 0 0 30px rgba(123, 46, 255, 0.07);
+}
+
+.stat-card {
+  text-align: center;
+  padding: 28px 20px;
+  border-radius: 14px;
+  background: rgba(123, 46, 255, 0.05);
+  border: 1px solid rgba(123, 46, 255, 0.15);
+  transition: all 0.25s;
+}
+
+.stat-card:hover {
+  background: rgba(123, 46, 255, 0.1);
+  border-color: rgba(123, 46, 255, 0.35);
+  box-shadow: 0 0 30px rgba(123, 46, 255, 0.12);
+  transform: translateY(-4px);
+}
+
+.section-label {
+  color: #7B2EFF;
+  font-size: 2rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.section-title {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 800;
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+}
+
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  margin-top: 3rem;
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.light-theme #about {
+  background-color: white;
+}
+
+.light-theme .section-title {
+  color: black;
+}
+
+.light-theme .about_Experience {
+  color: black;
+}
+
+.light-theme .about_exp_title {
+  color: black;
+}
+
+.light-theme .timeline-card {
+  border: 1px solid rgb(112, 111, 111);
+}
+
+.light-theme .timeline-card:hover {
+  box-shadow: 1px 1px 2px black;
+}
+
+.about-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 70px;
+  margin-bottom: 80px;
+}
+
+.about-content {
+  flex: 1;
+}
+
+.about-image-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.about-image {
+  width: 370px;
+  height: 480px;
+  object-fit: cover;
+  border-radius: 25px;
+  position: relative;
+  z-index: 2;
+  box-shadow:
+    0 0 40px rgba(123, 46, 255, .25);
+}
+
+.about-image-bg {
+  position: absolute;
+  width: 420px;
+  height: 520px;
+  border-radius: 35px;
+  background:
+    radial-gradient(circle, #7B2EFF55, #0000);
+  filter: blur(70px);
+}
+
+.ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid rgba(123, 46, 255, .35);
+  animation: rotateRing 12s linear infinite;
+}
+
+.ring1 {
+  width: 430px;
+  height: 430px;
+}
+
+.ring2 {
+  width: 500px;
+  height: 500px;
+  animation-direction: reverse;
+  opacity: .4;
+}
+
+@keyframes rotateRing {
+
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+
+}
+
+@media(max-width:900px) {
+
+  .about-hero {
+    flex-direction: column-reverse;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .about-image {
+    width: 280px;
+    height: 360px;
+  }
+
+  .ring1 {
+    width: 320px;
+    height: 320px;
+  }
+
+  .ring2 {
+    width: 380px;
+    height: 380px;
+  }
+
+}
+
+/* ============================================================ */
+
+.about-image-wrapper {
+  width: 480px;
+  height: 520px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  perspective: 1000px;
+  overflow: hidden;
+}
+
+.about-image {
+  width: 330px;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 24px;
+  position: relative;
+  z-index: 10;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, .45),
+    0 0 60px rgba(123, 46, 255, .25);
+
+  transition: .4s;
+}
+
+.ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 2px solid rgba(123, 46, 255, .25);
+}
+
+.ring1 {
+  width: 360px;
+  height: 360px;
+  animation: rotate1 12s linear infinite;
+}
+
+.ring2 {
+  width: 420px;
+  height: 420px;
+  animation: rotate2 18s linear infinite;
+}
+
+.ring3 {
+  width: 500px;
+  height: 500px;
+  border-style: dashed;
+  opacity: .4;
+  animation: rotate1 30s linear infinite;
+}
+
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(80px);
+}
+
+.glow1 {
+  width: 250px;
+  height: 250px;
+  background: #7B2EFF;
+  left: 40px;
+  top: 80px;
+
+  animation: pulse 4s infinite;
+}
+
+.glow2 {
+  width: 220px;
+  height: 220px;
+  background: #00CFFF;
+  right: 20px;
+  bottom: 60px;
+
+  animation: pulse 5s infinite alternate;
+}
+
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 0 20px #7B2EFF;
+}
+
+.orb1 {
+  width: 14px;
+  height: 14px;
+  top: 70px;
+  left: 80px;
+  animation: float1 5s infinite;
+}
+
+.orb2 {
+  width: 10px;
+  height: 10px;
+  right: 70px;
+  top: 120px;
+  animation: float2 6s infinite;
+}
+
+.orb3 {
+  width: 18px;
+  height: 18px;
+  bottom: 90px;
+  left: 60px;
+  animation: float1 8s infinite;
+}
+
+.orb4 {
+  width: 12px;
+  height: 12px;
+  bottom: 140px;
+  right: 80px;
+  animation: float2 7s infinite;
+}
+
+.grid-bg {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(rgba(255, 255, 255, .04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, .04) 1px, transparent 1px);
+
+  background-size: 30px 30px;
+
+  opacity: .18;
+
+  animation: gridMove 20s linear infinite;
+}
+
+@keyframes rotate1 {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate2 {
+  0% {
+    transform: rotate(360deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: .6;
+  }
+
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+}
+
+@keyframes float1 {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-25px);
+  }
+}
+
+@keyframes float2 {
+
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+
+  50% {
+    transform: translateX(25px);
+  }
+}
+
+@keyframes gridMove {
+  0% {
+    background-position: 0 0;
+  }
+
+  100% {
+    background-position: 30px 30px;
+  }
+}

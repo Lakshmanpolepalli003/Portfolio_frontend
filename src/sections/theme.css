@@ -1,0 +1,206 @@
+/* ============================================================
+   THEME SYSTEM — CSS Custom Properties
+   Drop this into your global CSS (index.css or App.css).
+   All component styles must use var(--...) instead of
+   hardcoded hex/rgba values.
+   ============================================================ */
+
+/* ─── TRANSITION SPEED ──────────────────────────────────────── */
+:root {
+    --transition: 0.35s ease;
+}
+
+/* ─── DARK THEME (Default) ──────────────────────────────────── */
+:root {
+    /* Backgrounds */
+    --bg: #050505;
+    --bg-section: #080808;
+    --card: rgba(255, 255, 255, 0.03);
+    --card-hover: rgba(255, 255, 255, 0.06);
+    --navbar-bg: rgba(5, 5, 5, 0.85);
+
+    /* Borders */
+    --border: rgba(255, 255, 255, 0.08);
+    --border-hover: rgba(123, 46, 255, 0.4);
+
+    /* Text */
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --text-muted: #606060;
+
+    /* Accent */
+    --accent: #7b2eff;
+    --accent-hover: #9b5aff;
+    --accent-rgb: 123, 46, 255;
+
+    /* Glow / Shadows */
+    --glow: rgba(123, 46, 255, 0.35);
+    --glow-soft: rgba(123, 46, 255, 0.15);
+    --shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+    --shadow-card: 0 2px 16px rgba(0, 0, 0, 0.3);
+
+    /* Hover background (icon buttons, tags) */
+    --hover-bg: rgba(123, 46, 255, 0.1);
+
+    /* Input / Form */
+    --input-bg: rgba(255, 255, 255, 0.04);
+    --input-border: rgba(255, 255, 255, 0.1);
+    --input-focus: rgba(123, 46, 255, 0.5);
+
+    /* Skill / Tag chips */
+    --tag-bg: rgba(123, 46, 255, 0.12);
+    --tag-text: #b08fff;
+    --tag-border: rgba(123, 46, 255, 0.25);
+
+    /* Scrollbar */
+    --scrollbar-track: #0a0a0a;
+    --scrollbar-thumb: rgba(123, 46, 255, 0.4);
+
+    /* Navbar border bottom */
+    --navbar-border: rgba(255, 255, 255, 0.06);
+}
+
+/* ─── LIGHT THEME ───────────────────────────────────────────── */
+.light-theme {
+    /* Backgrounds */
+    --bg: #f8fafc;
+    --bg-section: #f1f5f9;
+    --card: #ffffff;
+    --card-hover: #f8fafc;
+    --navbar-bg: rgba(248, 250, 252, 0.88);
+
+    /* Borders */
+    --border: #e5e7eb;
+    --border-hover: rgba(123, 46, 255, 0.5);
+
+    /* Text */
+    --text-primary: #111827;
+    --text-secondary: #4b5563;
+    --text-muted: #9ca3af;
+
+    /* Accent — same purple, looks great on light too */
+    --accent: #7b2eff;
+    --accent-hover: #6318e8;
+    --accent-rgb: 123, 46, 255;
+
+    /* Glow / Shadows — much softer on light */
+    --glow: rgba(123, 46, 255, 0.12);
+    --glow-soft: rgba(123, 46, 255, 0.06);
+    --shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+    --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.06);
+
+    /* Hover background */
+    --hover-bg: rgba(123, 46, 255, 0.07);
+
+    /* Input / Form */
+    --input-bg: #ffffff;
+    --input-border: #d1d5db;
+    --input-focus: rgba(123, 46, 255, 0.35);
+
+    /* Skill / Tag chips */
+    --tag-bg: rgba(123, 46, 255, 0.08);
+    --tag-text: #6318e8;
+    --tag-border: rgba(123, 46, 255, 0.2);
+
+    /* Scrollbar */
+    --scrollbar-track: #f1f5f9;
+    --scrollbar-thumb: rgba(123, 46, 255, 0.3);
+
+    /* Navbar border bottom */
+    --navbar-border: rgba(0, 0, 0, 0.07);
+}
+
+/* ─── GLOBAL TRANSITIONS ────────────────────────────────────── */
+/* Applied to html so every element inherits smooth theme switching */
+html {
+    transition:
+        background-color var(--transition),
+        color var(--transition);
+}
+
+*,
+*::before,
+*::after {
+    transition:
+        background-color var(--transition),
+        color var(--transition),
+        border-color var(--transition),
+        box-shadow var(--transition),
+        fill var(--transition),
+        stroke var(--transition);
+}
+
+/* Exclude transitions that shouldn't lerp (layout, transforms handled by Framer) */
+*,
+*::before,
+*::after {
+    /* Don't override Framer Motion's transform transitions */
+    /* Only color-related props get the global theme transition */
+}
+
+/* ─── BASE ELEMENTS ─────────────────────────────────────────── */
+body {
+    background-color: var(--bg);
+    color: var(--text-primary);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 3px;
+}
+
+/* ─── COMPONENT PATTERNS ────────────────────────────────────── */
+/*
+  Reference guide — use these in your component CSS files:
+
+  BACKGROUNDS
+  ───────────
+  background: var(--bg);             ← page / body
+  background: var(--bg-section);     ← alternating sections
+  background: var(--card);           ← cards, panels
+  background: var(--navbar-bg);      ← frosted-glass navbar
+
+  TEXT
+  ────
+  color: var(--text-primary);        ← headings, body
+  color: var(--text-secondary);      ← subtitles, captions
+  color: var(--text-muted);          ← placeholders, disabled
+
+  BORDERS
+  ───────
+  border: 1px solid var(--border);
+  border-color: var(--border-hover);   ← on hover / focus
+
+  ACCENT
+  ──────
+  color: var(--accent);
+  background: var(--accent);          ← filled buttons
+  background: var(--hover-bg);        ← ghost hover state
+
+  SHADOWS / GLOW
+  ──────────────
+  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-card);
+  box-shadow: 0 0 40px var(--glow);   ← hero accent glow
+
+  INPUTS
+  ──────
+  background: var(--input-bg);
+  border: 1px solid var(--input-border);
+  (focus) box-shadow: 0 0 0 3px var(--input-focus);
+
+  TAGS / CHIPS
+  ────────────
+  background: var(--tag-bg);
+  color: var(--tag-text);
+  border: 1px solid var(--tag-border);
+*/
