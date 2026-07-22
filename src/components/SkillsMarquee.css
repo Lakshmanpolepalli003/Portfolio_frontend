@@ -1,0 +1,247 @@
+.skills-marquee-section {
+  padding: 6rem 1rem;
+  background-color: var(--bg-section);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.skills-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  max-width: 800px;
+}
+
+.skills-title {
+  font-family: var(--font-main, 'Space Grotesk', sans-serif);
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.skills-subtitle {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-size: 1.125rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Marquee Container */
+.marquee-container {
+  width: 100vw;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  overflow: hidden;
+  position: relative;
+  /* Add invert filter variable for light mode (used by black icons like JWT) */
+  --invert-icon: 0;
+}
+
+.marquee-container.light {
+  --invert-icon: 1;
+}
+
+/* Fade effects on the edges */
+.marquee-container::before,
+.marquee-container::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 15vw;
+  max-width: 200px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.marquee-container::before {
+  left: 0;
+  background: linear-gradient(to right, var(--bg-section) 0%, transparent 100%);
+}
+
+.marquee-container::after {
+  right: 0;
+  background: linear-gradient(to left, var(--bg-section) 0%, transparent 100%);
+}
+
+/* Rows */
+.marquee-row {
+  display: flex;
+  width: max-content;
+}
+
+/* Base pause on hover */
+.marquee-row:hover .marquee-content {
+  animation-play-state: paused;
+}
+
+.marquee-content {
+  display: flex;
+  gap: 1.5rem;
+  padding: 0.5rem;
+  will-change: transform;
+}
+
+/* Animations */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes scroll-right {
+  0% {
+    transform: translateX(-50%);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Apply animations */
+.marquee-left .marquee-content {
+  animation: scroll-left 40s linear infinite;
+}
+
+.marquee-right .marquee-content {
+  animation: scroll-right 40s linear infinite;
+}
+
+/* Individual Badge */
+.skill-badge {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.5rem;
+  /* background: var(--card); */
+  border: 1px solid var(--border);
+  border-radius: 9999px;
+  /* Pill shape */
+  box-shadow: var(--shadow-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.skill-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+}
+
+.skill-name {
+  font-family: var(--font-body, 'Inter', sans-serif);
+  font-weight: 500;
+  font-size: 1rem;
+  color: var(--text-primary);
+  white-space: nowrap;
+}
+
+/* Hover Effects */
+.skill-badge:hover {
+  transform: scale(1.08) translateY(-4px);
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 8px 32px var(--glow);
+  color: #ffffff;
+}
+
+.skill-badge:hover .skill-name {
+  color: #ffffff;
+}
+
+.skill-badge:hover .skill-icon svg {
+  fill: #ffffff !important;
+  color: #ffffff !important;
+  filter: none !important;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+  .marquee-left .marquee-content,
+  .marquee-right .marquee-content {
+    animation: none;
+    transform: none;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .marquee-row {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .marquee-content {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .skills-marquee-section {
+    padding: 5rem 1rem;
+  }
+
+  .skills-title {
+    font-size: 2.5rem;
+  }
+
+  .skill-badge {
+    padding: 0.6rem 1.25rem;
+  }
+
+  .skill-icon {
+    font-size: 1.25rem;
+  }
+
+  .skill-name {
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* On mobile, collapse to one marquee row */
+  .marquee-container {
+    gap: 1.5rem;
+  }
+
+  /* Hide the 2nd and 3rd rows to prevent too much clutter on small screens if requested, 
+     but the prompt says: "Mobile -> One marquee row with touch-friendly badge sizes" */
+  .marquee-right,
+  .marquee-left.row3 {
+    display: none;
+  }
+
+  .skills-title {
+    font-size: 2rem;
+  }
+
+  .skills-subtitle {
+    font-size: 1rem;
+  }
+
+  .skill-badge {
+    padding: 0.75rem 1.25rem;
+    /* Touch friendly */
+  }
+
+  .marquee-left .marquee-content {
+    /* Since we only have row1 on mobile, maybe adjust animation speed if needed */
+    animation: scroll-left 30s linear infinite;
+  }
+}

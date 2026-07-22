@@ -8,6 +8,7 @@ import SectionDivider from "./components/SectionDivider";
 
 import Hero from "./sections/Hero";
 import About from "./sections/About";
+import SkillsMarquee from "./components/SkillsMarquee";
 import Projects from "./sections/Projects";
 import Gallery from "./sections/Gallery";
 import Skills from "./sections/Skills";
@@ -56,6 +57,9 @@ export default function App() {
         <SectionDivider />
 
         <About theme={theme} />
+        <SectionDivider />
+
+        <SkillsMarquee theme={theme} />
         <SectionDivider />
 
         <Projects theme={theme} />
