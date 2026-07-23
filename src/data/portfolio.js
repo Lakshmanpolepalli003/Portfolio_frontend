@@ -125,7 +125,7 @@ export const experience = [
   },
   {
     year: "2026",
-    title: "Frontend Developer",
+    title: "Full Stack Developer",
     company: "Freelance",
     description:
       "Built responsive web applications for clients across various industries using React and modern CSS.",

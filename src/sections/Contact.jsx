@@ -203,8 +203,8 @@ export default function Contact() {
               )}
             </button>
 
-            <a href="/Lakshman_ATS_Resume.pdf" download className="dl-btn">
-              Download Resume
+            <a href="/Lakshman_ATS_Final_Resume.pdf" className="dl-btn">
+              View Resume
             </a>
           </div>
         </form>
