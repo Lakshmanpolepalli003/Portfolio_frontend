@@ -80,7 +80,7 @@ export default function Resume() {
 
           <div className="resume-btn-container" style={{ marginTop: 0 }}>
             <a
-              href="/Lakshman_ATS_Final_Resume.pdf"
+              href="/Lakshman_ATS_Final_Resume (3).pdf"
               download
               className="download-btn"
             >
